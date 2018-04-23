@@ -11,6 +11,4 @@ Visual Studio 2017
 Ado.NET
 html/css/javascript
 WebAPI
-
-
-
+bootstrap
