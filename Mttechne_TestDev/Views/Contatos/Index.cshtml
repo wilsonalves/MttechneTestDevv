@@ -1,0 +1,71 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/data.js"></script>
+
+@*<script src="~/Scripts/Script.js"></script>*@
+<br />
+
+<div ng-app="myModule">
+    <div ng-controller="myController">
+        <form>
+
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Pesquisar</label>
+                <div class="col-sm-10">
+                    <input ng-model="searchText" id="inputPassword" class="form-control" type="text" placeholder="Nome, Telefone, Email" readonly" />
+                </div>
+            </div>
+        </form>
+        @*<div></div>
+            <label>Pesquisar: <input ng-model="searchText" class="form-control" type="text" placeholder="Nome, Telefone, Email" readonly" /></label>*@
+
+        <table class="table table-hover">
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Empresa</th>
+                  <th></th>
+            </tr>
+
+
+            <tbody>
+
+                <tr ng-repeat="data in Orders | filter:searchText">
+
+                    <td>{{data.Nome}}</td>
+                    <td>{{data.Telefone}}</td>
+                    <td>{{data.Email}}</td>
+                    <td>{{data.Empresa}}</td>
+                    
+                    <td>
+                        @{
+                            var url = Url.Action("Edit", "Contatos", new { id = "{{id=data.ID}}" });
+                            url = HttpUtility.UrlDecode(url);
+
+                            var url2 = Url.Action("Delete", "Contatos", new { id = "{{id=data.ID}}" });
+                            url2 = HttpUtility.UrlDecode(url2);
+
+                            var url3 = Url.Action("Detalhes", "Contatos", new { id = "{{id=data.ID}}" });
+                            url3 = HttpUtility.UrlDecode(url3);
+                        }
+                        <a data-ng-href="@url">Editar |</a>
+                        <a data-ng-href="@url2">Excluir |</a>
+                        <a data-ng-href="@url3">Detalhes</a>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <a ng-href="@Url.Action("Edit", "Contatos")?id={{order.ID}}"> </a>
+        </td>
+
+
+
+
+        <a class="btn btn-primary" href="@Url.Action("Create","Contatos")  ">Adicionar  Contato</a>
+    </div>
+</div>
