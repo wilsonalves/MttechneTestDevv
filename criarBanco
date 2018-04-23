@@ -1,0 +1,36 @@
+USE [Mttechne_Test]
+GO
+
+/****** Object:  Table [dbo].[UsuarioAgenda]    Script Date: 23/04/2018 14:52:47 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[UsuarioAgenda](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] [varchar](100) NOT NULL,
+	[telefone] [varchar](20) NOT NULL,
+	[telefone2] [varchar](20) NULL,
+	[telefone3] [varchar](20) NULL,
+	[Email] [varchar](100) NULL,
+	[Email2] [varchar](100) NULL,
+	[Email3] [varchar](100) NULL,
+	[Empresa] [varchar](50) NULL,
+	[Endereco] [varchar](150) NULL,
+ CONSTRAINT [PK_UsuarioAgenda] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
